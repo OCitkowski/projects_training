@@ -13,7 +13,7 @@ my_new_list = sum_element.split()
 my_new_list2 = []
 
 for new_element in my_new_list:
-    if not new_element == '-':
+    if new_element != '-':
         my_new_list2.append(new_element)
 
 print(f"New {my_new_list2}")

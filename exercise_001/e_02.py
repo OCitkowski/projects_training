@@ -17,3 +17,10 @@ print(type(my_rey))
 my_rey = (1, 5, 15)
 print(my_rey)
 #my_rey[0]  - error
+
+#************************************************
+my_tuple = tuple(range(0,20,2))
+
+print(f" type- {type(my_tuple)}, {my_tuple}")
+print(f" {my_tuple[2 : 8 : 2]}")
+print(f" list - {list_mil[-6: -2: 1]}")
