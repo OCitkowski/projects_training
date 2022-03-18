@@ -7,6 +7,13 @@ print(f"--- {list_ran} min = {min(list_ran)}  max = {max(list_ran)}  sum = {sum(
 list_2 = [item2/5.6 for item2 in range(0, 124, 6)]
 print(f" --- {list_2}")
 
-list_mil = list(range(0, 1_000_001))
+list_mil = list(range(0, 11))
 print(f"--- {list_mil} min = {min(list_mil)}  max = {max(list_mil)}  sum = {sum(list_mil)}")
 
+#************************************************
+
+my_rey = ()
+print(type(my_rey))
+my_rey = (1, 5, 15)
+print(my_rey)
+#my_rey[0]  - error
