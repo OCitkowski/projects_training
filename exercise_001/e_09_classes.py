@@ -24,6 +24,9 @@ class Car:
         """Add km to auto miles"""
         self.odometr += miles
 
+    def fill_gas_tank(self):
+        print(f"fill gas tank for this car is ok.")
+
 
 my_new_car = Car("opel", "a4", 2022)
 my_new_car.odometr = 89
@@ -33,6 +36,23 @@ my_new_car.update_odometr(5)
 my_new_car.read_odometr()
 my_new_car.increment_odometr(54)
 my_new_car.read_odometr()
+
+class ElectroCar(Car):
+
+    def __init__(self, make, model, year):
+        super().__init__(make, model, year)
+        self.battery_size = 75
+
+    def describe_battery(self):
+        print(f"This car has s {self.battery_size} -kWh battery")
+
+    def fill_gas_tank(self):
+        print(f"This car not have gas tank .")
+
+my_tesla = ElectroCar("tesla", "model s", 2019)
+print(my_tesla.get_desccriptive_name())
+my_tesla.describe_battery()
+my_tesla.fill_gas_tank()
 
 # ************************9.1*******
 class Dog:
