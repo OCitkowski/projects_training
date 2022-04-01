@@ -38,7 +38,7 @@
 def grid(N):
     if N < 0:
         return None
-    abc = 'abcdefghijklmnopqrstuvwxyz' * 8 # Error ???
+    abc = 'abcdefghijklmnopqrstuvwxyz' * 8 # Error  n = 1000???
     val = []
     for i in range(N):
         arr = list(abc[i: N+i])
