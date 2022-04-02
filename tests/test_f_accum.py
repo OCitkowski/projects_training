@@ -1,4 +1,4 @@
-from f_accum import accum
+from exercise_002.f_accum import accum
 import unittest
 
 class TestAccum(unittest.TestCase):
@@ -19,4 +19,5 @@ class TestAccum(unittest.TestCase):
     # def test_type_value(self):
     #     self.assertRaises(TypeError, accum, "ZpglnRxqenU")
 
-
+if __name__ == '__main__':
+    unittest.main()
