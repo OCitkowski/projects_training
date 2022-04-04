@@ -2,10 +2,10 @@ def find_outlier(integers):
     even = [i for i in integers if i % 2 == 0]
     odd = [i for i in integers if i % 2 != 0]
     if len(even) > len(odd):
-        print(f'{odd[0]}')
+        # print(f'{odd[0]}')
         return odd[0]
     else:
-        print(f'{even[0]}')
+        # print(f'{even[0]}')
         return even[0]
 
 def bestpr_find_outlier(integers):
