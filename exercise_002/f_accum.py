@@ -20,4 +20,6 @@ def accum(s):
 #         i += 1
 #     return result[:-1]
 
-print(f'*** - {accum("ZpglnRxqenU")}')
+if __name__ == '__main__':
+
+    print(f'*** - {accum("ZpglnRxqenU")}')

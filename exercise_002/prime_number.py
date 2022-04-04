@@ -56,7 +56,7 @@ def is_prime_best_pr(n): return all(n % p for p in [2] + list(range(3, int(n ** 
 
 
 if __name__ == "__main__":
-    # assert is_prime(111) == False
-    # assert is_prime(4) == False
-    # assert is_prime(5099) == True
+    assert is_prime(111) == False
+    assert is_prime(4) == False
+    assert is_prime(5099) == True
     # assert is_prime(11111111111111111111111111111111111) == True
