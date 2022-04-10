@@ -1,4 +1,4 @@
-def best_amount_of_pages(summary):
+def amount_of_pages(summary):
     # 1-9:          9       = 9 * 1 * 10**0
     # 10-99:        180     = 9 * 2 * 10**1
     # 100-999:      2700    = 9 * 3 * 10**2
@@ -12,7 +12,9 @@ def best_amount_of_pages(summary):
         res += y//x
         summary -= y
 
-def amount_of_pages(summary: int, len_sum: int = None) -> int:
+    return res
+
+def hamount_of_pages(summary: int, len_sum: int = None) -> int:
     calculate_old = lambda num: (len(''.join([str(i) for i in range(1, num + 1)])))
     calc_string = f'({summary}'
     len_sum = len(str(summary)) if len_sum == None else len_sum
@@ -30,7 +32,7 @@ def amount_of_pages(summary: int, len_sum: int = None) -> int:
     if summary != calculate_old(result):
         result = amount_of_pages(summary, len_sum - 1)
 
-    print(f'{calc_string} ----- res {result} // sum {summary} == {calculate_old(result)}')
+    # print(f'{calc_string} ----- res {result} // sum {summary} == {calculate_old(result)}')
     return result
 
 if __name__ == '__main__':
