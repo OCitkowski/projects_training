@@ -46,4 +46,4 @@ def grid(N):
         val.append(out)
     return '\n'.join(val)
 
-print(grid(int(input('enter - '))))
+# print(grid(int(input('enter - '))))

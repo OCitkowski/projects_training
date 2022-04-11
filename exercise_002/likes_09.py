@@ -21,7 +21,7 @@ def likes(names: list) -> str:
     else:
         text = f"don't worry"
 
-    print(text)
+    # print(text)
     return text
 
 # def likes(names: list) -> str:
