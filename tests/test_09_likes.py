@@ -11,7 +11,7 @@
 # ["Alex", "Jacob", "Mark", "Max"]  -->  "Alex, Jacob and 2 others like this"
 
 from unittest import TestCase
-from exercise_002.likes_09 import likes
+from exercise_002.ex_09_likes import likes
 
 class TestLikes(TestCase):
 

@@ -19,7 +19,7 @@
 
 
 from  unittest import TestCase
-from exercise_002.valid_braces_10 import valid_braces
+from exercise_002.ex_10_valid_braces import valid_braces
 
 class TestValidVbraces(TestCase):
 
