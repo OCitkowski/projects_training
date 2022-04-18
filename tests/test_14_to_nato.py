@@ -40,4 +40,4 @@ class TestToNato(TestCase):
         self.assertEqual(to_nato('Did not see that coming'),
                          "Delta India Delta November Oscar Tango Sierra Echo "
                          "Echo Tango Hotel Alfa Tango Charlie Oscar Mike India November Golf")
-        self.assertEqual(to_nato('.d?d!', '. Delta ? Delta !'))
+        self.assertEqual(to_nato('.d?d!'), '. Delta ? Delta !')

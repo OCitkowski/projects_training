@@ -7,7 +7,7 @@ def to_nato(words: str) -> str:
                  'W': 'Whiskey',
                  'X': 'Xray', 'Y': 'Yankee', 'Z': 'Zulu', '.': '.', '?': '?', '!': '!', '.': '.', ' ': ''}
 
-    print(f"'{' '.join([nato_dict[words[i].upper()] for i in range(len(words)) if words[i].upper() != ' '])}'")
+    # print(f"'{' '.join([nato_dict[words[i].upper()] for i in range(len(words)) if words[i].upper() != ' '])}'")
     return ' '.join([nato_dict[words[i].upper()] for i in range(len(words)) if words[i].upper() != ' '])
 
 
