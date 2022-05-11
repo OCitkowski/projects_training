@@ -3,6 +3,7 @@ from unittest import TestCase
 
 class TestUniqueInOrder(TestCase):
 
+    # todo test
     def test_unique(self):
         self.assertEqual(unique_in_order('AAAABBBCCDAABBB'), ['A', 'B', 'C', 'D', 'A', 'B'], 'is good')
         self.assertEqual(unique_in_order('ABBCcAD'), ['A', 'B', 'C', 'c', 'A', 'D'], 'is good')
