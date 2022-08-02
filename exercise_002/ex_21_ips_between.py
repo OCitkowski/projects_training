@@ -22,7 +22,7 @@ def ips_between(start, end):
         result =  (int(end_list[i]) - int(start_list[i])) * coof[i]
         full_result += result
         # print(f' {int(end_list[i])} - {int(start_list[i])}  * {coof[i]} // i = {i}// {result} //{i}')
-    print(f'{full_result} start = {start} end = {end} coof = {coof}')
+    # print(f'{full_result} start = {start} end = {end} coof = {coof}')
     return full_result
 
 
