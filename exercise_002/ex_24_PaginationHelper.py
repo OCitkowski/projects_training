@@ -6,7 +6,7 @@ class PaginationHelper:
         self.collection = collection
         self.items_per_page = items_per_page
         self.page_index = -1
-        self.page_item_count = -1
+        self.page_item_count = 0
 
     # returns the number of items within the entire collection
     def item_count(self):
