@@ -1,5 +1,3 @@
-
-
 class PaginationHelper:
 
     # The constructor takes in an array of items and a integer indicating
@@ -27,15 +25,14 @@ class PaginationHelper:
         if len(self.collection) // self.items_per_page > page_index:
             return -1
         elif len(self.collection) % self.items_per_page == 0:
+            pass
         else:
             return len(self.collection) - len(self.collection) // self.items_per_page * self.items_per_page
-
 
     # determines what page an item is on. Zero based indexes.
     # this method should return -1 for item_index values that are out of range
     def page_index(self, item_index):
         pass
-
 
 
 if __name__ == '__main__':
