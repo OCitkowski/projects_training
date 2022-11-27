@@ -27,6 +27,9 @@ class PaginationHelper:
         if len(self.collection) // self.items_per_page > page_index:
             return -1
         elif len(self.collection) % self.items_per_page == 0:
+            pass
+
+
         else:
             return len(self.collection) - len(self.collection) // self.items_per_page * self.items_per_page
 
