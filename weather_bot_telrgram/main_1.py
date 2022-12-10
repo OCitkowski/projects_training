@@ -4,6 +4,7 @@ from sqlalchemy import Column, Integer, String
 from sqlalchemy import create_engine
 from sqlalchemy import Sequence
 from faker import Faker
+from sqlalchemy import and_
 
 engine = create_engine("sqlite:///xxx.sqlite3", echo=True)
 Base = declarative_base()
@@ -19,7 +20,7 @@ class User(Base):
     nickname = Column(String)
 
     def __repr__(self):
-        return f"{self.name} {self.fullname} {self.nickname}"
+        return f"{self.id} {self.name} {self.fullname} {self.nickname}"
 
 
 if __name__ == '__main__':
@@ -29,8 +30,7 @@ if __name__ == '__main__':
 
     fake = Faker()
 
-    'ku'.split(" ")
-    for i in range(555):
+    for i in range(1):
         print(i)
         fa = fake.name()
         name = fa.split(" ")[0]
@@ -41,3 +41,11 @@ if __name__ == '__main__':
 
     session.commit()
     session.close()
+    #
+    # for it in session.query(User):
+    #     print(it)
+
+    for it2 in session.query(User).filter(and_(User.id >= 3,
+                                                User.fullname.like('R%'))):
+        print(it2)
+
