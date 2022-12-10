@@ -26,13 +26,17 @@ if __name__ == '__main__':
 
     session = Session()
     Base.metadata.create_all(engine)
+
     fake = Faker()
 
-    nickname = fake.name().split(" ")[1]
-
     'ku'.split(" ")
-    for i in range(5):
-        ed_user = User(name=f'{fake.name().split(" ")[0]}', fullname=f"{fake.name()}", nickname=nickname)
+    for i in range(555):
+        print(i)
+        fa = fake.name()
+        name = fa.split(" ")[0]
+        nickname = fa.split(" ")[1]
+
+        ed_user = User(name=name, fullname=fa, nickname=nickname)
         session.add(ed_user)
 
     session.commit()

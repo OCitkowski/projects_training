@@ -32,7 +32,9 @@
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files />
+    <open-files>
+      <object connection-id="d133c9fb-973b-4ac9-a064-99165a30c78a" object-ref="schemas/main/tables/users" />
+    </open-files>
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
     <filter-actions connection-id="d133c9fb-973b-4ac9-a064-99165a30c78a" dataset="main.users" active-filter-id="a8605941-dc8d-404d-8d0d-3ba221bbc289">
@@ -68,7 +70,7 @@
   </component>
   <component name="DBNavigator.Project.Settings">
     <connections>
-      <connection id="d133c9fb-973b-4ac9-a064-99165a30c78a" active="false" signed="true">
+      <connection id="d133c9fb-973b-4ac9-a064-99165a30c78a" active="true" signed="true">
         <database>
           <name value="Connection" />
           <description value="" />
