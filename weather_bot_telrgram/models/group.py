@@ -3,13 +3,13 @@ from sqlalchemy.orm import relationship
 
 from weather_bot_telrgram.models.database import Base
 
-#
-# class Group(Base):
-#     __tablename__ = 'groups'
-#     #
-    # id = Column(Integer, primary_key=True)
-    # group_name = Column(String)
-    # student = relationship('Student')
+
+class Group(Base):
+    __tablename__ = 'groups'
     #
-    # def __repr__(self):
-    #     return f'Группа [ID: {self.id}, Название: {self.group_name}]'
+    id = Column(Integer, primary_key=True)
+    group_name = Column(String)
+    student = relationship('Student')
+
+    def __repr__(self):
+        return f'Группа [ID: {self.id}, Название: {self.group_name}]'
