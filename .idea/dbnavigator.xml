@@ -39,6 +39,7 @@
       <filter id="a8605941-dc8d-404d-8d0d-3ba221bbc289" name="Filter 1" temporary="false" custom-name="false" type="basic" join-type="AND" />
     </filter-actions>
     <filter-actions connection-id="d133c9fb-973b-4ac9-a064-99165a30c78a" dataset="main.groups" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="d133c9fb-973b-4ac9-a064-99165a30c78a" dataset="main.association" active-filter-id="EMPTY_FILTER" />
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />
