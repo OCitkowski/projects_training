@@ -1,7 +1,3 @@
-from sqlalchemy import Column, Integer, String, Table, ForeignKey
-from sqlalchemy.orm import relationship
-from weather_bot_telrgram.models.database import Base
-
 #
 # association_table = Table('association', Base.metadata,
 #                           Column('lesson_id', Integer, ForeignKey('lessons.id')),

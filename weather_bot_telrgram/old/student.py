@@ -1,5 +1,5 @@
-from sqlalchemy import Column, Integer, String, ForeignKey
-from weather_bot_telrgram.models.database import Base
+from sqlalchemy import Column, Integer, String
+from weather_bot_telrgram.old.database import Base
 
 
 class Student(Base):

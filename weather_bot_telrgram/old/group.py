@@ -1,7 +1,7 @@
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import relationship
 
-from weather_bot_telrgram.models.database import Base
+from weather_bot_telrgram.old.database import Base
 
 
 class Group(Base):

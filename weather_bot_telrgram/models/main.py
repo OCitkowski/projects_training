@@ -1,11 +1,17 @@
 from faker import Faker
 from sqlalchemy.orm import sessionmaker, relationship
 from sqlalchemy import Column, Integer, String, ForeignKey, Table, create_engine, Sequence, and_
-from models.models import *
+from models import *
+from create_database import Base
 
-engine = create_engine("sqlite:///xxx.sqlite3", echo=True)
-Base = declarative_base
-Base.metadata.create_all(engine)
+
+base = declarative_base()
+b = Base(declarative_base(), "sqlite:///xxx.sqlite3")
+b.create_base()
+engine = b.engine
+# engine = create_engine("sqlite:///xxx.sqlite3", echo=True)
+# Base = declarative_base
+# Base.metadata.create_all(engine)
 
 Session = sessionmaker(bind=engine)
 session = Session()
