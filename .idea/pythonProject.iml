@@ -6,7 +6,7 @@
       <excludeFolder url="file://$MODULE_DIR$/weather_bot_telrgram/bot_env" />
       <excludeFolder url="file://$MODULE_DIR$/LearnPostgreSQL/learn_env" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 3.10 (projects_training) (3)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.10 (projects_training)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>

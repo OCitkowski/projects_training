@@ -2,6 +2,11 @@ from builtins import print
 
 my_list = [1, 'jhf', 'jhfjhgfjh', 5, 8957, 456.2]
 
+
+
+
+
+
 sum_element = ''
 for element in my_list:
     if not type(element) == 'str':
