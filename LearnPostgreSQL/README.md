@@ -1,5 +1,3 @@
-Install PostgreSQL 
-
 Activate
 
     python3 -m venv venv
@@ -23,3 +21,14 @@ Faker
 Save to requirements.txt
 
     pip freeze > requirements.txt
+
+**********************************
+postgresql
+
+
+    sudo -u postgres psql -c "\l"
+    sudo apt-get install postgresql postgresql-contrib    
+    postgres --version    
+    psql -V
+    psql postgres (для выхода из интерфейса используйте \q)    
+    postgres=# create database db;
