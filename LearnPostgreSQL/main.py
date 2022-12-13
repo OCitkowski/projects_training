@@ -1,17 +1,12 @@
 from faker import Faker
-from sqlalchemy.orm import sessionmaker, relationship
-from sqlalchemy import Column, Integer, String, ForeignKey, Table, create_engine, Sequence, and_
+from sqlalchemy.orm import sessionmaker
+from sqlalchemy import  create_engine,  and_
 from models import *
-from create_database import Base
+import psycopg2  # https://pypi.org/project/psycopg2/
 
-
-base = declarative_base()
-b = Base(declarative_base(), "sqlite:///xxx.sqlite3")
-b.create_base()
-engine = b.engine
-# engine = create_engine("sqlite:///xxx.sqlite3", echo=True)
-# Base = declarative_base
-# Base.metadata.create_all(engine)
+engine = create_engine("postgresql+psycopg2://fox:111@localhost/db", isolation_level="SERIALIZABLE", )
+Base = declarative_base
+Base.metadata.create_all(engine)
 
 Session = sessionmaker(bind=engine)
 session = Session()
@@ -55,7 +50,7 @@ if __name__ == '__main__':
     # *************************************************
     session.commit()
     session.close()
-    # *************************************************
+    # ****************** select ************************
     for it in session.query(User):
         print(it)
     for it2 in session.query(User).filter(and_(User.id >= 3,
