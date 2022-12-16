@@ -32,3 +32,6 @@ postgresql
     psql -V
     psql postgres (для выхода из интерфейса используйте \q)    
     postgres=# create database db;
+
+    postgres=# ALTER USER fox
+    postgres-# WITH PASSWORD '111';

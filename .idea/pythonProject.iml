@@ -2,7 +2,7 @@
 <module type="PYTHON_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/LearnPostgreSQL" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/aiogram" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/weather_bot_telrgram/bot_env" />
       <excludeFolder url="file://$MODULE_DIR$/LearnPostgreSQL/learn_env" />
     </content>

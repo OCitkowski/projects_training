@@ -1,6 +1,6 @@
 from faker import Faker
 from sqlalchemy.orm import sessionmaker
-from sqlalchemy import  create_engine,  and_
+from sqlalchemy import create_engine, and_
 from models import *
 import psycopg2  # https://pypi.org/project/psycopg2/
 
@@ -50,6 +50,7 @@ if __name__ == '__main__':
     # *************************************************
     session.commit()
     session.close()
+
     # ****************** select ************************
     for it in session.query(User):
         print(it)
