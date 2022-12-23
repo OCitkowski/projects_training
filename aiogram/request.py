@@ -10,6 +10,7 @@ BearerTOKEN_API = f"Bearer {TOKEN_API}"
 authorization = {"Authorization": BearerTOKEN_API}
 payload = {'limit': '10', 'offset': '10'}
 
+
 if __name__ == '__main__':
 
     for i in requests.get(url=url, params=payload, headers=authorization):
