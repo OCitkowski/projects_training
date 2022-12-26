@@ -1,5 +1,5 @@
 from dotenv import load_dotenv
-import asyncio, time, os, requests
+import asyncio, os, requests
 
 load_dotenv()
 
@@ -8,39 +8,35 @@ url = "https://ocitkowski.pythonanywhere.com/api/v1/notes/"
 TOKEN_API = os.getenv('TOKEN_API')
 BearerTOKEN_API = f"Bearer {TOKEN_API}"
 authorization = {"Authorization": BearerTOKEN_API}
-params = {'limit': '10', 'offset': '10'}
-
-# params = {}
-# params.limit = '10'
-# params.offset = '10'
-# params.Authorization = BearerTOKEN_API
-
+params1 = {'limit': '10', 'offset': '10'}
+params2 = {'limit': '10', 'offset': '15'}
 
 TOKEN_API = '82603ae1dd2d9c22a63309297103a261b1923369'
 
 
-# async def main():
-#     task_1 = asyncio.create_task(my_function_sec(1))
-#     task_2 = asyncio.create_task(my_function_sec(5))
-#
-#     await task_1
-#     await task_2
+class GetDataByURL:
+    def __init__(self, url, params):
+        self.url = url
+        self.params = params
+        self.authorization = self.__set_authorization()
+
+    def __set_authorization(self):
+        BearerTOKEN_API = f"Bearer {os.getenv('TOKEN_API')}"
+        self.authorization = {"Authorization": BearerTOKEN_API}
+        return self.authorization
+
+    async def print_data(self, delay):
+        await asyncio.sleep(delay)
+        print(requests.get(self.url, headers=self.authorization, params=self.params).json())
+
+    async def asyncio_get(self):
+        task = asyncio.create_task(self.print_data(5))
+        return await task
 
 
 if __name__ == '__main__':
-    # for i in range(10):
-        # asyncio.run(main())
-    response = requests.get(url, headers=authorization, params=params).json()
+    gd1 = GetDataByURL(url, params1)
+    gd2 = GetDataByURL(url, params2)
 
-    print(response)
-
-
-# class GetDataByURL:
-#     def __init__(self, url, params):
-#         self.TOKEN_API = os.getenv('TOKEN_API')
-#         self.url = url
-#         self.params = params
-#
-#     async def asyncio_get(self):
-#         task = asyncio.create_task(requests.get(self.url, headers={self.authorization, params}))
-#         return await task
+    asyncio.run(gd1.asyncio_get())
+    asyncio.run(gd2.asyncio_get())
