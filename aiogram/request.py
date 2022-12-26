@@ -10,7 +10,7 @@ authorization = {"Authorization": BearerTOKEN_API}
 choise_metod = ["GET", "POST", "PATCH", "DEL"]
 
 post_data = {
-    "id": 1154,
+    "id": 1165,
     "owner": 6,
     "source": 12,
     "text": "SHTuIlKSjEzooooooooscKrycsAUhh555hhh",
@@ -22,7 +22,7 @@ post_data = {
 
 
 class NotesAPIByURL:
-    def __init__(self, url, metod, params=None, json=None, delay=0):
+    def __init__(self, url, metod, params=None, id=None, json=None, delay=0):
         self.url = url
         self.params = params
         self.authorization = self.__set_authorization()
@@ -30,6 +30,7 @@ class NotesAPIByURL:
         self.metod = metod
         self.delay = delay
         self.json = json
+        self.id = id
 
         asyncio.run(self.__asyncio_get_notes())
 
@@ -53,19 +54,21 @@ class NotesAPIByURL:
 
     async def _patch_notes(self):
         await asyncio.sleep(self.delay)
-        url_whis_id = self.__add_id_for_url()
-        response = requests.patch(url_whis_id,  headers=self.authorization, json=self.json).json()
+        url_whis_id = self.__add_id_for_url(self.id)
+        response = requests.patch(url_whis_id, headers=self.authorization, json=self.json).json()
         self.response = response
 
     async def _del_notes(self):
         await asyncio.sleep(self.delay)
-        url_whis_id = self.__add_id_for_url()
+        url_whis_id = self.__add_id_for_url(self.id)
         response = requests.delete(url_whis_id, headers=self.authorization).json()
         self.response = response
 
-    def __add_id_for_url(self):
-        return f'{self.url}{self.json["id"]}/'
-        pass
+    def __add_id_for_url(self, id=None):
+        if id == None:
+            return f'{self.url}{self.json["id"]}/'
+        else:
+            return f'{self.url}{id}/'
 
     async def __asyncio_get_notes(self):
         if self.metod == choise_metod[0]:
@@ -87,12 +90,14 @@ if __name__ == '__main__':
     params1 = {'limit': '10', 'offset': '10'}
     params2 = {'limit': '10', 'offset': '15'}
 
-    # gd1 = NotesAPIByURL(url, params=params1, metod=choise_metod[0])
+    gd1 = NotesAPIByURL(url, params=params1, metod=choise_metod[0])
     gd2 = NotesAPIByURL(url, metod=choise_metod[1], json=post_data)
-    gd3 = NotesAPIByURL(url, metod=choise_metod[2], json=post_data)
+    id = gd2.response['id']
+    gd3 = NotesAPIByURL(url, metod=choise_metod[2], id=id)
     gd4 = NotesAPIByURL(url, metod=choise_metod[3], json=post_data)
-    # print(post_data['id'])
-    print(gd2.response['id'])
-    print(gd3.response)
-    print(gd4.response)
+
+    print(f"{gd1} // {gd1.response} // {gd1}")
+    print(f"{gd2} // {gd2.response} // {gd2}")
+    print(f"{gd3} // {gd3.response} // {gd3}")
+    print(f"{gd4} // {gd4.response} // {gd4}")
 
