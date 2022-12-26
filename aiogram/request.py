@@ -9,9 +9,20 @@ BearerTOKEN_API = f"Bearer {TOKEN_API}"
 authorization = {"Authorization": BearerTOKEN_API}
 choise_metod = ["GET", "POST", "DEL", "PATCH"]
 
+post_data = {
+    "id": 0,
+    "owner": 6,
+    "source": 12,
+    "text": "SHTuIlKSjEzooooooooscKrycsAUhh555hhh",
+    "comment": "Phone appear ahead soldier summer individual step late especially back555hhhh.",
+    "key": 12,
+    "status": "A",
+    "date_update": "2022-12-23"
+}
 
-class GetDataByURL:
-    def __init__(self, url, params, metod, json={}, delay=0):
+
+class NotesAPIByURL:
+    def __init__(self, url, metod, params=None, json=None, delay=0):
         self.url = url
         self.params = params
         self.authorization = self.__set_authorization()
@@ -37,8 +48,10 @@ class GetDataByURL:
 
     async def __post_notes(self):
         await asyncio.sleep(self.delay)
-        response = requests.post(self.url, json=self.json, headers=self.authorization, params=self.params).json()
-        self.notes = response['results']
+        response = requests.post(self.url, headers=self.authorization, json=self.json).json()
+        for i in response:
+            print(i)
+        # self.notes = response['results']
 
     async def __asyncio_get_notes(self):
         if self.metod == choise_metod[0]:
@@ -61,8 +74,8 @@ if __name__ == '__main__':
     params1 = {'limit': '10', 'offset': '10'}
     params2 = {'limit': '10', 'offset': '15'}
 
-    gd1 = GetDataByURL(url, params1, metod=choise_metod[0])
-    gd2 = GetDataByURL(url, params2, metod=choise_metod[0])
+    # gd1 = NotesAPIByURL(url, params=params1, metod=choise_metod[0])
+    gd2 = NotesAPIByURL(url, metod=choise_metod[1], json=post_data)
 
-    for i in gd1.notes:
-        print(i)
+    # for i in gd1.notes:
+    #     print(i)
