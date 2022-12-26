@@ -19,6 +19,7 @@ class GetDataByURL:
         self.url = url
         self.params = params
         self.authorization = self.__set_authorization()
+        self.notes = []
 
     def __set_authorization(self):
         BearerTOKEN_API = f"Bearer {os.getenv('TOKEN_API')}"
@@ -27,10 +28,13 @@ class GetDataByURL:
 
     async def print_data(self, delay):
         await asyncio.sleep(delay)
-        print(requests.get(self.url, headers=self.authorization, params=self.params).json())
+        response = requests.get(self.url, headers=self.authorization, params=self.params).json()
+        self.notes = response['results']
+        # for i in response['results']:
+        #     print(i)
 
     async def asyncio_get(self):
-        task = asyncio.create_task(self.print_data(5))
+        task = asyncio.create_task(self.print_data(1))
         return await task
 
 
@@ -40,3 +44,7 @@ if __name__ == '__main__':
 
     asyncio.run(gd1.asyncio_get())
     asyncio.run(gd2.asyncio_get())
+
+    for i in gd1.notes:
+        print(i)
+
