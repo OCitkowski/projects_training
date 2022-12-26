@@ -30,7 +30,7 @@ class GetDataByURL:
         self.authorization = {"Authorization": BearerTOKEN_API}
         return self.authorization
 
-    async def _get_notes(self):
+    async def __get_notes(self):
         await asyncio.sleep(self.delay)
         response = requests.get(self.url, headers=self.authorization, params=self.params).json()
         self.notes = response['results']
@@ -42,9 +42,9 @@ class GetDataByURL:
 
     async def __asyncio_get_notes(self):
         if self.metod == choise_metod[0]:
-            task = asyncio.create_task(self._get_notes())
+            task = asyncio.create_task(self.__get_notes)
         elif self.metod == choise_metod[1]:
-            task = asyncio.create_task(self.__post_notes())
+            task = asyncio.create_task(self.__post_notes)
         elif self.metod == choise_metod[2]:
             pass
         elif self.metod == choise_metod[3]:
