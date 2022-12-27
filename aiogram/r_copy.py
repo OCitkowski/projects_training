@@ -7,7 +7,6 @@ url = "https://ocitkowski.pythonanywhere.com/api/v1/notes/"
 TOKEN_API = os.getenv('TOKEN_API')
 BearerTOKEN_API = f"Bearer {TOKEN_API}"
 authorization = {"Authorization": BearerTOKEN_API}
-choise_metod = ["GET", "POST", "PATCH", "DEL"]
 
 post_data = {
     "id": 1165,
@@ -21,6 +20,44 @@ post_data = {
 }
 
 
+class APIByURL:
+    def __init__(self, url, delay=0):
+        self.url = url
+        self.authorization = self._set_authorization()
+        self.delay = delay
+        self.response = None
+        self.metod = None
+
+        asyncio.run(self._asyncio_data())
+
+    def __str__(self):
+        return self.metod
+
+    def _set_authorization(self):
+        BearerTOKEN_API = f"Bearer {os.getenv('TOKEN_API')}"
+        self.authorization = {"Authorization": BearerTOKEN_API}
+        return self.authorization
+
+    async def _data(self):
+        pass
+
+    async def _asyncio_data(self):
+        task = asyncio.create_task(self._data())
+        return await task
+
+
+class GetAPIMixin:
+
+    async def get_data(self):
+        await asyncio.sleep(self.delay)
+        response = requests.get(self.url, headers=self.authorization, params=self.params).json()
+        self.response = response
+
+    async def _asyncio_data(self):
+        task = asyncio.create_task(self.get_data())
+        return await task
+
+
 class NotesAPIByURL:
     def __init__(self, url, metod, params=None, id=None, json=None, delay=0):
         self.url = url
@@ -32,7 +69,7 @@ class NotesAPIByURL:
         self.json = json
         self.id = id
 
-        asyncio.run(self.__asyncio_get_notes())
+        asyncio.run(self.__asyncio_get_data())
 
     def __str__(self):
         return self.metod
@@ -42,23 +79,23 @@ class NotesAPIByURL:
         self.authorization = {"Authorization": BearerTOKEN_API}
         return self.authorization
 
-    async def _get_notes(self):
+    async def _get_data(self):
         await asyncio.sleep(self.delay)
         response = requests.get(self.url, headers=self.authorization, params=self.params).json()
         self.response = response
 
-    async def _post_notes(self):
+    async def _post_data(self):
         await asyncio.sleep(self.delay)
         response = requests.post(self.url, headers=self.authorization, json=self.json).json()
         self.response = response
 
-    async def _patch_notes(self):
+    async def _patch_data(self):
         await asyncio.sleep(self.delay)
         url_whis_id = self.__add_id_for_url(self.id)
         response = requests.patch(url_whis_id, headers=self.authorization, json=self.json).json()
         self.response = response
 
-    async def _del_notes(self):
+    async def _del_data(self):
         await asyncio.sleep(self.delay)
         url_whis_id = self.__add_id_for_url(self.id)
         response = requests.delete(url_whis_id, headers=self.authorization).json()
@@ -70,15 +107,15 @@ class NotesAPIByURL:
         else:
             return f'{self.url}{id}/'
 
-    async def __asyncio_get_notes(self):
+    async def __asyncio_get_data(self):
         if self.metod == choise_metod[0]:
-            task = asyncio.create_task(self._get_notes())
+            task = asyncio.create_task(self._get_data())
         elif self.metod == choise_metod[1]:
-            task = asyncio.create_task(self._post_notes())
+            task = asyncio.create_task(self._post_data())
         elif self.metod == choise_metod[2]:
-            task = asyncio.create_task(self._patch_notes())
+            task = asyncio.create_task(self._patch_data())
         elif self.metod == choise_metod[3]:
-            task = asyncio.create_task(self._del_notes())
+            task = asyncio.create_task(self._del_data())
         else:
             # task = asyncio.create_task(self.__post_notes)
             pass
