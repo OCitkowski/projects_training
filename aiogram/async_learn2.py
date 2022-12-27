@@ -23,11 +23,12 @@ async def main_cl():
 
     await asyncio.gather(task1, task2)
 
-    l_task = ()
+    # l_task = ()
     # for i in range(19):
-    # a = MyClassAsync(i)
+    #     a = MyClassAsync(i)
     #     task = asyncio.create_task(a.my_function_sec())
     #     l_task.add(task)
+    # t_task = *l_task
     await asyncio.gather(*[my_function_sec(i) for i in range(6, 1, -1)])
 
 class MyClassAsync():
@@ -46,5 +47,5 @@ class MyClassAsync():
 
 
 if __name__ == '__main__':
-
+    loop = asyncio.get_event_loop()
     asyncio.run(main_cl())
