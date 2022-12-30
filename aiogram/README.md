@@ -5,6 +5,8 @@ Activate
 2. source venv/bin/activate
 3. python3 -m pip install --upgrade pip
 4. sudo apt install python3.10-venv
+5. sudo apt install python3-pip
+
 ---
 
 
