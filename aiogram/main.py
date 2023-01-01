@@ -55,6 +55,7 @@ async def echo_message_sticker(msg: types.Message):
                            sticker='CAACAgIAAxkBAAEG2cFjnD7zeqOKLHVsRlpFtrPM9G0gDwACVAAD-7g6BArMcKJJmKi_LAQ')
 
 
+
 @dp.message_handler(commands=['foto'])
 async def echo_message_foto(message: types.Message):
     # await message.answer(message.from_user.id)
