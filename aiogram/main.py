@@ -10,7 +10,6 @@ TOKEN = os.getenv('TOKEN')
 bot = Bot(token=TOKEN)
 dp = Dispatcher(bot)
 
-
 HELP_ME = """ <b> /start </b> ***** 
 <b> /location </b>  ***** 
 <b> /help </b>  ***** 
@@ -53,6 +52,7 @@ async def echo_message(msg: types.Message):
 async def echo_message_sticker(msg: types.Message):
     await bot.send_sticker(msg.from_user.id,
                            sticker='CAACAgIAAxkBAAEG2cFjnD7zeqOKLHVsRlpFtrPM9G0gDwACVAAD-7g6BArMcKJJmKi_LAQ')
+
 
 
 

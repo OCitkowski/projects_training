@@ -18,20 +18,10 @@ Faker
 
     pip install Faker
 
+Psycopg is the most popular PostgreSQL database adapter 
+
+    pip install psycopg2
+
 Save to requirements.txt
 
     pip freeze > requirements.txt
-
-**********************************
-postgresql
-
-
-    sudo -u postgres psql -c "\l"
-    sudo apt-get install postgresql postgresql-contrib    
-    postgres --version    
-    psql -V
-    psql postgres (для выхода из интерфейса используйте \q)    
-    postgres=# create database db;
-
-    postgres=# ALTER USER fox
-    postgres-# WITH PASSWORD '111';

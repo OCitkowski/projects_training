@@ -4,7 +4,7 @@ from sqlalchemy import create_engine, and_
 from models import *
 import psycopg2  # https://pypi.org/project/psycopg2/
 
-engine = create_engine("postgresql+psycopg2://fox:111@localhost/db", isolation_level="SERIALIZABLE", )
+engine = create_engine("postgresql+psycopg2://fox:111@localhost/fox_project", isolation_level="SERIALIZABLE", )
 Base = declarative_base
 Base.metadata.create_all(engine)
 
