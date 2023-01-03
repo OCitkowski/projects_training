@@ -4,7 +4,18 @@ from sqlalchemy import create_engine, and_
 from models import *
 import psycopg2  # https://pypi.org/project/psycopg2/
 
-engine = create_engine("postgresql+psycopg2://fox:111@localhost/fox_project", isolation_level="SERIALIZABLE", )
+# import psycopg2
+# # Connect to your postgres DB
+# conn = psycopg2.connect("dbname=test user=postgres")
+# # Open a cursor to perform database operations
+# cur = conn.cursor()
+# # Execute a query
+# cur.execute("SELECT * FROM my_data")
+# # Retrieve query results
+# records = cur.fetchall()
+
+
+engine = create_engine("postgresql+psycopg2://fox:fox@localhost/db_fox", isolation_level="SERIALIZABLE", )
 Base = declarative_base
 Base.metadata.create_all(engine)
 

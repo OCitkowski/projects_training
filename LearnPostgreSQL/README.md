@@ -20,7 +20,7 @@ Faker
 
 Psycopg is the most popular PostgreSQL database adapter 
 
-    pip install psycopg2
+    pip install psycopg2-binary
 
 Save to requirements.txt
 
