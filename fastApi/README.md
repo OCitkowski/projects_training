@@ -8,12 +8,15 @@ fastapi
 
     pip install fastapi
     pip install "uvicorn[standard]"
+
+    uvicorn main:app --reload
 ---
     Go to 
 1. http://127.0.0.1:8000/docs
 2. http://127.0.0.1:8000/redoc
 3. http://127.0.0.1:8000/openapi.json
 ___
+
 
 Save to requirements.txt
 
