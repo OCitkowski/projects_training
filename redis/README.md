@@ -6,6 +6,7 @@ Activate
 ---
 redis
 
+    sudo apt-get install redis-server
     pip install redis
 ___
 
