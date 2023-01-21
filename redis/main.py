@@ -19,9 +19,18 @@ CHANNEL_LAYERS = {
 
 
 if __name__ == '__main__':
-    for i in os.environ:
-        print(i)
+    print(r.ping())
 
-    r.set('foo', 'bar')
+    rr = r.set('foo', 'bar', ex=10)
+    r.set('foo2', 'bar2')
+    r.set('qfoo2', 'qbar2')
     print(redis_host)
     print(r.get('foo'))
+    print(r.dbsize)
+
+    print(r.info('foo'))
+    print(r.keys())
+    print(r.info())
+
+    r.close()
+
