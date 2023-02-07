@@ -1,3 +1,24 @@
+from string import ascii_letters
+
+import string
+
+
+def rot13_4(message):
+    PAIRS = dict(zip("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
+                     "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM"))
+    return "".join(PAIRS.get(c, c) for c in message)
+
+
+def rot13_3(message):
+    first = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
+    trance = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm'
+    return message.translate(string.maketrans(first, trance))
+
+
+def rot13_2(message):
+    return message.encode('rot13')
+
+
 def rot13(message):
     input = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
     output = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm'
@@ -15,9 +36,10 @@ def rot13(message):
 
 
 if __name__ == '__main__':
+    print(ascii_letters)
     # print(rot13('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'))
     # rot13('ABCDEFGHIJKLMNOPQRSTUVWXY Zabcdefghijklmnopqrstuvwxyz')
-    rot13("EBG13 ,rknzcyr.")
+    rot13("EBG13 rknzcyr.")
     # # assert (rot13("EBG13 rknzcyr.") == "ROT13 example.")
     # rot13('ABCDEFGHIJKLMNOPQRSTUVWXY Zabcdefghijklmnopqrstuvwxyz')
 
