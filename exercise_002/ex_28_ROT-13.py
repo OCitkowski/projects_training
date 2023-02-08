@@ -35,16 +35,13 @@ def rot13(message):
     return result
 
 
-if __name__ == '__main__':
-    print(ascii_letters)
-    # print(rot13('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'))
-    # rot13('ABCDEFGHIJKLMNOPQRSTUVWXY Zabcdefghijklmnopqrstuvwxyz')
-    rot13("EBG13 rknzcyr.")
-    # # assert (rot13("EBG13 rknzcyr.") == "ROT13 example.")
-    # rot13('ABCDEFGHIJKLMNOPQRSTUVWXY Zabcdefghijklmnopqrstuvwxyz')
+def jjj():
+    x = lambda a: a + 10
+    print(x(5))
 
-    # test.assert_equals(rot13("EBG13 rknzcyr."), "ROT13 example.")
-    # test.assert_equals(rot13("How can you tell an extrovert from an\nintrovert at NSA? Va gur ryringbef,\ngur rkgebireg ybbxf ng gur BGURE thl'f fubrf."), "Ubj pna lbh gryy na rkgebireg sebz na\nvagebireg ng AFN? In the elevators,\nthe extrovert looks at the OTHER guy's shoes.")
-    # test.assert_equals(rot13("123"), "123")
-    # test.assert_equals(rot13("Guvf vf npghnyyl gur svefg xngn V rire znqr. Gunaxf sbe svavfuvat vg! :)"), "This is actually the first kata I ever made. Thanks for finishing it! :)")
-    # test.assert_equals(rot13("@[`{"), "@[`{"
+
+if __name__ == '__main__':
+    # print(ascii_letters)
+    jjj()
+    axz = lambda a, x, z: (a + x) * z
+    print(axz(5, 10, 2))
